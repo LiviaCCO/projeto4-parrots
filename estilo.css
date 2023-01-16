@@ -27,7 +27,7 @@ body{
     display: flex;
     justify-content: center;
     margin: auto;
-    word-wrap:  normal;
+    flex-wrap: wrap;
 }
 .carta {
     position: relative;
@@ -59,20 +59,23 @@ body{
 .front{
     transform: rotateY(180deg);
 }
-
-.carta:hover .front {
+.vira-front{
+    transform: rotateY(0deg);
+}
+.vira-back{
+    transform: rotateY(-180deg);
+}
+/* .carta:hover .front {
     transform: rotateY(0deg);
 }
 
 .carta:hover .back {
     transform: rotateY(-180deg);
-}
+} */
 
 img{
-    width: 100px;
-    height: 100px;
+    width: 100%;
 }
-
 
 @media screen and (max-width: 400px) {
     .all {
