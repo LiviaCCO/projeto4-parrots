@@ -147,9 +147,9 @@ function fimJogo(){
     // para perguntar se o usuário gostaria de reiniciar a partida.
     let reiniciar = prompt("Gostaria de reiniciar a partida? (Digite sim ou não)");
     
-    // while ((reiniciar !=="sim") || (reiniciar !=="não")){
-    //     reiniciar = prompt("Gostaria de reiniciar a partida? (Digite sim ou não)");
-    // }
+    while ((reiniciar !=="sim") && (reiniciar !=="não")){
+        reiniciar = prompt("Gostaria de reiniciar a partida? (Digite sim ou não)");
+    }
 
     // Se sim, reiniciar a partida:
     if (reiniciar=="sim"){
