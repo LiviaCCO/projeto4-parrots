@@ -1,7 +1,7 @@
 let numCartas = Number(prompt("Com quantas cartas deseja jogar? (Lembre-se de digitar um número par entre 4 e 14)"));
 let numPar = (numCartas) % 2;
 // verificando a condição do número de cartas
-while ((numCartas < 4) || (numCartas > 14) || (numCartas == NaN) || (numPar != 0)){
+while ((numCartas < 4) || (numCartas > 14) || (numCartas == NaN) || ((numCartas)%2 != 0)){
     alert("Você digitou um número inválido! Tente novamente!");
     numCartas = Number(prompt("Com quantas cartas deseja jogar? (Lembre-se de digitar um número par entre 4 e 14)"));  
 }
@@ -62,7 +62,9 @@ function lancarCartas(){
 
 let contador=0;
 let primeiraCarta;
-// let segundaCarta;
+let jogadas=0;
+let total=0;
+
 
 console.log('contador inicial');
 console.log(contador);
@@ -81,6 +83,7 @@ function virar(cartaClicada){
         cartaClicada.querySelector(".back").classList.add('vira-back');
         cartaClicada.querySelector(".front").classList.add('vira-front');
         contador++
+        jogadas++
         console.log('contador dentro do if');
         console.log(contador);
        
@@ -114,11 +117,10 @@ function virar(cartaClicada){
                 console.log('primeiraCarta')
                 console.log(primeiraCarta);
 
-                let contador = 0;
                 console.log('zerando o contador das cartas diferentes');
                 console.log(contador);
 
-                setTimeout(desvirar, 3000);
+                setTimeout(desvirar, 1000);
 
                 function desvirar() {
                     document.querySelector(".primeira .back").classList.remove('vira-back');
@@ -128,6 +130,8 @@ function virar(cartaClicada){
                     cartaClicada.querySelector(".back").classList.remove('vira-back');
                     cartaClicada.querySelector(".front").classList.remove('vira-front');
 
+                    contador = 0;
+
                     //Zerando o contador:
                     // let contador=0;
                 }
@@ -136,215 +140,24 @@ function virar(cartaClicada){
             // se forem iguais, manter virada e tirar a classificação primeira carta
             else{
                 primeiraCarta.classList.remove('primeira');
-                let contador=0;
+                contador=0;
+                total+=2;
                 console.log('cartas iguais');
                 console.log('zerando o contador das cartas iguai');
                 console.log(contador);
+                if(total==numCartas){
+                    setTimeout(fimJogo, 1000);
+                    
+                }               
 
-            }             
+            }      
 
         }
-    }
+        
+    } 
     
 }
-
-   
-
-            // // se forem diferentes, desvirar cartas, tirar a classificação primeira carta e zerar o contador
-            // if (imagens[0] !== imagens[1]){
-            //     primeiraCarta.classList.remove('vira-back');
-            //     primeiraCarta.classList.remove('vira-front');
-            //     cartaClicada.querySelector(".back").classList.remove('vira-back');
-            //     cartaClicada.querySelector(".front").classList.remove('vira-front');
-    
-            //     primeiraCarta.classList.remove('primeira');
-            //     console.log("cartas diferentes");
-                
-            //     console.log(periquito2);
-
-            //     let contador=0;
-            //     const imagens = [];
-            // }
-    //         // se forem iguais, manter virada e tirar a classificação primeira carta
-    //         else{
-    //             primeiraCarta.classList.remove('primeira');
-    //             console.log("cartas iguais");
-    //             console.log(periquito1);
-    //             console.log(periquito2);
-    //             let contador=0;
-    //             const imagens = [];
-    //         }
-    //     } 
-        
-    // }
-
-//         } 
-//     }
-// }
-    //     se não for a primeira, verificar a igualdade das imagens
-    //     else{ 
-            
-    //         let periquito2 = cartaClicada.querySelector("img");
-    //         imagens.push(periquito2);
-    //         console.log(periquito2)
-    //         contador ++;
-    //         console.log("segunda carta");
-            
-    //         console.log(imagens);
-
-    //         // se forem diferentes, desvirar cartas, tirar a classificação primeira carta e zerar o contador
-    //         if (imagens[0] !== imagens[1]){
-    //             primeiraCarta.classList.remove('vira-back');
-    //             primeiraCarta.classList.remove('vira-front');
-    //             cartaClicada.querySelector(".back").classList.remove('vira-back');
-    //             cartaClicada.querySelector(".front").classList.remove('vira-front');
-    
-    //             primeiraCarta.classList.remove('primeira');
-    //             console.log("cartas diferentes");
-                
-    //             console.log(periquito2);
-
-    //             let contador=0;
-    //             const imagens = [];
-    //         }
-    //         // se forem iguais, manter virada e tirar a classificação primeira carta
-    //         else{
-    //             primeiraCarta.classList.remove('primeira');
-    //             console.log("cartas iguais");
-    //             console.log(periquito1);
-    //             console.log(periquito2);
-    //             let contador=0;
-    //             const imagens = [];
-    //         }
-    //     } 
-        
-    // }
-
-
-
-
-//     let contador = 0;
-// const comparacao = [];
-// function virar(cartaClicada){
-//     if (contador<2){
-//         // para virar:
-//         const verso = cartaClicada.querySelector(".back");
-//         verso.classList.add('vira-back');
-//         const frente = cartaClicada.querySelector(".front");
-//         frente.classList.add('vira-front');
-//         comparacao.push(cartaClicada);
-
-//         console.log(comparacao);
-
-//         if (contador==1){
-//             if (comparacao[0]==comparacao[1]){
-                
-//             }
-            
-//             contador++
-//         }
-//         else{
-//             contador++
-//         }
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //     const imagem = cartaClicada.querySelector("img");
-    //     verificacao.push(imagem);
-
-    //     if (verificacao.length==1){
-    //         // verificar se sao iguais
-    //         verificacao.push(imagem);
-    //         if (verificacao[0]==verificacao[1]){
-    //             const verificacao = [];
-    //         }
-    //         else{
-    //             //desvirar as cartas
-    //         }
-            
-    //     }
-    //     else{
-    //         verificacao.push(imagem);
-    //     }
-    
-    
-
-// 
-// const verificacao = [];
-// function virar(cartaClicada){
-//     if (verificacao.length<3){
-//         // para virar:
-//         const verso = cartaClicada.querySelector(".back");
-//         verso.classList.add('vira-back');
-//         const frente = cartaClicada.querySelector(".front");
-//         frente.classList.add('vira-front');
-         
-//         const imagem = cartaClicada.querySelector("img");
-//         verificacao.push(imagem);
-
-//         if (verificacao.length==1){
-//             // verificar se sao iguais
-//             verificacao.push(imagem);
-//             if (verificacao[0]==verificacao[1]){
-//                 const verificacao = [];
-//             }
-//             else{
-//                 //desvirar as cartas
-//             }
-            
-//         }
-//         else{
-//             verificacao.push(imagem);
-//         }
-//     }
-    
-// }
-//
-// // função para virar ao clicar na carta:
-// function virar(cartaClicada){
-//     // se for a primeira carta, pode permanecer virada
-//     const cartaVirada = document.querySelector(".vira-back");
-
-//     const verso1 = cartaClicada.querySelector(".back");
-//     const frente1 = cartaClicada.querySelector(".front");
-//     const imagem1 = cartaClicada.querySelector(".front img");
-
-//     const verso2 = cartaClicada.querySelector(".back");
-//     const frente2 = cartaClicada.querySelector(".front");
-//     const imagem2 = cartaClicada.querySelector(".front img");
-
-//     if (cartaVirada == null){
-        
-//         verso1.classList.add('vira-back');
-        
-//         frente1.classList.add('vira-front');
-        
-//         console.log(imagem1);
-//     }
-//     else{
-//         //if carta 2a igual a carta 1a, ambas agora devem ficar viradas pra cima até o final do jogo;
-        
-//         verso2.classList.add('vira-back');
-        
-//         frente2.classList.add('vira-front');
-        
-//         console.log(imagem2);
-//         if(imagem1!=imagem2){
-//             verso1.classList.remove('vira-back');
-//             verso2.classList.remove('vira-back');
-//         }
-//         // else **aguardar 1 segundo** e então virar as duas cartas para baixo novamente.
-//     console.log(imagem1);
-//     console.log(imagem2)
+// função para emitir alerta de fim de jogo
+function fimJogo(){
+    alert(`Você ganhou em ${jogadas} jogadas!`)
+}
