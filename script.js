@@ -46,12 +46,12 @@ function lancarCartas(){
     for(let i=0; i<parCartas.length; i++){
         const card = document.querySelector("ul");
         card.innerHTML += `
-        <li onclick="virar(this)" class= "carta">
+        <li onclick="virar(this)" data-test="card" class= "carta">
             <div class="face front">
-              <img src="imagens/${parCartas[i]}.gif">
+              <img data-test="face-up-image" src="imagens/${parCartas[i]}.gif">
             </div>
             <div class="face back">
-                <img src="imagens/back.png">
+                <img data-test="face-down-image" src="imagens/back.png">
             </div>
             
         </li>
