@@ -6,6 +6,14 @@ let baralho = ['bobros' , 'explody' , 'fiesta' , 'metal' , 'revertit' , 'triplet
 let cartasEscolhidas = [];
 let parCartas = [];
 
+//para embaralhar o baralho
+// embaralhando as cartas:
+baralho.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
+
+function comparador() { 
+    return Math.random() - 0.5; 
+}
+
 iniciar();
 
 function iniciar(){
@@ -35,9 +43,9 @@ function lancarCartas(){
     // embaralhando as cartas:
     parCartas.sort(comparador); // Após esta linha, a minhaArray estará embaralhada
 
-    function comparador() { 
-        return Math.random() - 0.5; 
-    }
+    // function comparador() { 
+    //     return Math.random() - 0.5; 
+    // }
 
     // lançando as cartas na mesa:
     for(let i=0; i<parCartas.length; i++){
